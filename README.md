@@ -1,7 +1,8 @@
 ﻿# Psdファイルをバラすやつ
-Psdファイルの各レイヤーをpng画像として出力します。
+Psdファイルの各レイヤーをpng画像として出力するツールです。
 
-(c) 2023- 饅頭遣い https://manjubox.net/
+# ダウンロード
+https://manjubox.net/tools/PsdFileWoBarasuYatsu/
 
 # 使い方
 ## ファイルをD&Dする場合
