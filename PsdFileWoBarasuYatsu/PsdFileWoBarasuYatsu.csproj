@@ -5,6 +5,12 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	
+	<Version>1.0.1</Version>
+	<Authors>饅頭遣い</Authors>
+	<Product>Psdファイルをバラすやつ</Product>
+	<PackageProjectUrl>https://manjubox.net/ymm4/</PackageProjectUrl>
+	<Copyright>Copyright (c) 2023- 饅頭遣い</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,12 +19,17 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="PsdParser" Version="1.2.1" />
-    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+    <PackageReference Include="PsdParser" Version="1.2.2" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.6" />
   </ItemGroup>
 
 	<ItemGroup>
 		<Content Include="..\README.md" Link="使い方.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="..\ChangeLog.md" Link="更新履歴.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
