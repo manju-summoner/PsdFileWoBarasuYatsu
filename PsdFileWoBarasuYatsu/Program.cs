@@ -109,6 +109,7 @@ string GetLayerPath(IEnumerable<IndexedLayer> layers, bool containsId)
         return "";
     return layers
         .Select(x=> GetLayerFileName(x, containsId))
+        .Select(x => x.Trim())
         .Aggregate((x, y) => $"{x}\\{y}");
 }
 
