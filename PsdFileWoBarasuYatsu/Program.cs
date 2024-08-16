@@ -81,13 +81,17 @@ void SaveLayerImage(string filePath, LayerRecordAndImage layer, Size originalSiz
         height = originalSize.Height;
         buffer = new byte[width * height * 4];
         var layerBuffer = layer.Image.Read();
-        for(int y = 0; y < layer.Image.Height; y++)
+
+        var xFrom = Math.Max(0, layer.Record.Left);
+        var yFrom = Math.Max(0, layer.Record.Top);
+        var xTo = Math.Min(width, layer.Record.Right);
+        var yTo = Math.Min(height, layer.Record.Bottom);
+        for (int y = yFrom; y < yTo; y++)
         {
-            for(int x = 0; x < layer.Image.Width; x++)
+            for(int x = xFrom; x < xTo; x++)
             {
-                var index = (y * layer.Image.Width + x) * 4;
-                var layerIndex = index;
-                var bufferIndex = ((y + layer.Record.Top) * width + (x + layer.Record.Left)) * 4;
+                var layerIndex = ((y - layer.Record.Top) * layer.Image.Width + (x - layer.Record.Left)) * 4;
+                var bufferIndex = (y * width + x) * 4; 
                 buffer[bufferIndex + 0] = layerBuffer[layerIndex + 0];
                 buffer[bufferIndex + 1] = layerBuffer[layerIndex + 1];
                 buffer[bufferIndex + 2] = layerBuffer[layerIndex + 2];
